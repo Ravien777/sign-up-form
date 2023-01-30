@@ -9,6 +9,25 @@ body {
   /* padding: 2rem; */
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background-color: transparent;
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: rgb(106, 106, 106) !important;
+}
+
+::-moz-selection,
+::selection {
+  /* Code for Firefox */
+  color: #fff;
+  background: rgb(106, 106, 106);
+}
+
 .content {
   background-color: #000;
   /* border-radius: 2rem; */
@@ -62,8 +81,8 @@ header {
   gap: 0.5rem;
   text-align: left;
   border-radius: 1rem 0 1rem 1rem;
-  box-shadow: 4px 4px 10px rgba(238, 238, 238, 0.39),
-    -4px -4px 10px rgba(238, 238, 238, 0.185);
+  box-shadow: 4px 4px 10px rgba(161, 161, 161, 0.39),
+    -4px -4px 10px rgba(161, 161, 161, 0.39);
 }
 
 .form-field label {
@@ -73,27 +92,36 @@ header {
 
 .form-field input {
   background-color: transparent;
-  color: rgb(165, 165, 165);
+  color: rgb(106, 106, 106);
+  font-size: 1.1rem;
   padding-top: 5px;
   padding-bottom: 5px;
   border: none;
   outline: none;
 }
 
-.form-field input[type="password"] {
+.input-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-field input#password {
   letter-spacing: 1px;
+  flex: 1;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  background-color: transparent;
-  -webkit-box-shadow: 0 0 0 30px white inset !important;
+.input-password svg {
+  width: 20px;
+  height: auto;
 }
 
-input:-webkit-autofill {
-  -webkit-text-fill-color: rgb(165, 165, 165) !important;
+.input-password #view-pw {
+  display: block;
+}
+
+.input-password #hide-pw {
+  display: none;
 }
 
 button[type="submit"] {
@@ -115,5 +143,10 @@ button[type="submit"] {
 
 .sign-up-instead a {
   text-decoration: none;
+  color: rgb(106, 106, 106);
+}
+
+.form-field .help {
+  font-size: 0.8rem;
   color: rgb(106, 106, 106);
 }
