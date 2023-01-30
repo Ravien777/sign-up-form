@@ -4,7 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delorean TM</title>
+    <title>Delorean TM Login</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <main class="content">
+      <header>
+        <img
+          src="assets/Delorean_logo_inverted-transparent.png"
+          alt="Logo"
+          class="logo"
+        />
+      </header>
+      <div class="form-div">
+        <h1>Login</h1>
+        <form action="">
+          <div class="form-field email">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div class="form-field password">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        <div class="sign-up-instead">
+          <p>Don't have any account?</p>
+          <a href="">Sign Up</a>
+        </div>
+      </div>
+      <div class="sign-up-img"></div>
+    </main>
+  </body>
 </html>
