@@ -45,11 +45,11 @@ input:-webkit-autofill {
   right: 0;
 }
 
-.content {
-  /* border-radius: 2rem; */
-  /* box-shadow: 8px 8px 1rem rgba(180, 180, 180, 0.426),
-    -8px -8px 1rem rgba(180, 180, 180, 0.264); */
-}
+/* .content {
+  border-radius: 2rem; 
+   box-shadow: 8px 8px 1rem rgba(180, 180, 180, 0.426),
+    -8px -8px 1rem rgba(180, 180, 180, 0.264); 
+} */
 
 header {
   width: 100%;
@@ -126,14 +126,32 @@ header {
   align-items: center;
 }
 
+.input-email input {
+  width: 100%;
+}
+
+.label-row {
+  display: flex;
+  align-items: center;
+}
+
+.label-row label {
+  margin-right: auto;
+}
+
 .form-field input#password {
   letter-spacing: 1px;
   flex: 1;
 }
 
-.input-password svg {
+.input-password svg,
+.label-row svg {
   width: 20px;
   height: auto;
+}
+
+.validate-sign {
+  display: none;
 }
 
 .input-password #view-pw {
