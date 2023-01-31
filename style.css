@@ -118,11 +118,11 @@ header {
   padding-bottom: 5px;
   border: none;
   outline: none;
+  flex: 1;
 }
 
 .input-password {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -154,11 +154,11 @@ header {
   display: none;
 }
 
-.input-password #view-pw {
+.input-password .view-pw {
   display: block;
 }
 
-.input-password #hide-pw {
+.input-password .hide-pw {
   display: none;
 }
 

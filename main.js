@@ -3,10 +3,11 @@ const login_page = document.getElementById("login_form");
 const register_page = document.getElementById("register_form");
 const form_fields = document.querySelectorAll(".form-field");
 
-function togglePassword() {
-  const password_input = document.getElementById("password");
-  const view_pw = document.getElementById("view-pw");
-  const hide_pw = document.getElementById("hide-pw");
+function togglePassword(view_btn) {
+  const password_input = view_btn.previousElementSibling;
+
+  const view_pw = view_btn.querySelector(".view-pw");
+  const hide_pw = view_btn.querySelector(".hide-pw");
   if (password_input.type === "password") {
     view_pw.style.display = "none";
     hide_pw.style.display = "block";
@@ -44,11 +45,9 @@ function toggleLogin() {
 
 function hide_opposite_form() {
   if (login_visible) {
-    console.log("In 1");
     register_page.style.display = "block";
     login_page.style.display = "none";
   } else {
-    console.log("In 2");
     login_page.style.display = "block";
     register_page.style.display = "none";
   }
@@ -60,7 +59,7 @@ addEventListener("input", (event) => {
   form_fields.forEach((field) => {
     if (
       field.classList.contains(event.target.type) ||
-      (event.target.getAttribute("id") === "password" &&
+      (event.target.getAttribute("id") !== null &&
         field.classList.contains(event.target.getAttribute("id")))
     ) {
       const valid_sign = field.querySelector("svg.correct.validate-sign");
@@ -89,20 +88,35 @@ addEventListener("input", (event) => {
 });
 
 function fieldVerification(field) {
-  let field_type = field.type;
+  // let field_type = field.type;
   let field_value = field.value;
   let field_id = field.getAttribute("id");
   let valid = false;
-  if (field_type === "email") {
+  if (
+    (field_id !== null && field_id === "email") ||
+    (field_id !== null && field_id === "rg-email")
+  ) {
     let emailVerif =
       /\w+[\w!#$%&*+-|]*@(\w){2,}(\.{1}\w{2,}){0,2}(\.){1}[A-Za-z]{2,}/i;
     valid = emailVerif.test(field_value);
-  } else if (
-    field_type === "password" ||
+  }
+  if (
+    (field_id !== null && field_id === "rg-password") ||
     (field_id !== null && field_id === "password")
   ) {
     let passwVerif = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}/;
     valid = passwVerif.test(field_value);
+  }
+  if (field_id !== null && field_id === "rg-confirm-password") {
+    const pwVal = document.getElementById("rg-password").value;
+    valid = field_value.localeCompare(pwVal) === 0 ? true : false;
+  }
+  if (
+    (field_id !== null && field_id === "rg-first-name") ||
+    (field_id !== null && field_id === "rg-last-name")
+  ) {
+    let nameVerif = /[A-Za-z]{2,}/;
+    valid = nameVerif.test(field_value);
   }
   return valid;
 }
