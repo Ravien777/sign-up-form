@@ -5,6 +5,7 @@
 
 body {
   font-family: "Times New Roman", Times, serif, sans-serif;
+  background-color: #000;
   /* background-color: rgb(242, 242, 242); */
   /* padding: 2rem; */
 }
@@ -21,15 +22,30 @@ input:-webkit-autofill {
   -webkit-text-fill-color: rgb(106, 106, 106) !important;
 }
 
-::-moz-selection,
+/* ::-moz-selection,
 ::selection {
-  /* Code for Firefox */
   color: #fff;
   background: rgb(106, 106, 106);
+} */
+
+#register_form,
+#login_form {
+  position: absolute;
+  top: 7rem;
+  min-height: calc(100vh - 9rem);
+  transition: right 0.5s ease;
+}
+
+#register_form {
+  right: 150%;
+  display: none;
+}
+
+#login_form {
+  right: 0;
 }
 
 .content {
-  background-color: #000;
   /* border-radius: 2rem; */
   /* box-shadow: 8px 8px 1rem rgba(180, 180, 180, 0.426),
     -8px -8px 1rem rgba(180, 180, 180, 0.264); */
@@ -37,11 +53,12 @@ input:-webkit-autofill {
 
 header {
   width: 100%;
-  /* height: 7rem; */
+  height: 10rem;
   position: sticky;
-  display: grid;
-  place-items: center;
-  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
 }
 
 .logo {
@@ -50,20 +67,23 @@ header {
   margin: 1rem;
 }
 
-.form-div {
+.form-login,
+.form-register {
   background-color: #fff;
   border-radius: 3rem 0 0 0;
   padding: 1rem;
   text-align: center;
 }
 
-.form-div h1 {
+.form-login h1,
+.form-register h1 {
   margin-top: 1rem;
   margin-bottom: 2rem;
   letter-spacing: 1px;
 }
 
-.form-div form {
+.form-login form,
+.form-register form {
   display: flex;
   flex-direction: column;
   justify-content: center;
