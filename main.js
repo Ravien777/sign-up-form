@@ -1,7 +1,9 @@
 var login_visible = true;
+var screen_width = window.innerWidth;
+const container = document.querySelector(".container");
 const login_page = document.getElementById("login_form");
 const register_page = document.getElementById("register_form");
-const form_fields = document.querySelectorAll(".form-field");
+const form_fields = document.querySelectorAll(".form-register .form-field");
 
 function togglePassword(view_btn) {
   const password_input = view_btn.previousElementSibling;
@@ -23,9 +25,13 @@ function toggleLogin() {
   if (login_visible) {
     login_page.style.right = "150%";
     register_page.style.right = "0";
+    if (screen_width > 575 && screen_width < 800) {
+      container.style.height = "120vh";
+    }
   } else {
     register_page.style.right = "150%";
     login_page.style.right = "0";
+    container.style.height = "unset";
   }
 
   login_page.addEventListener("webkitTransitionEnd", hide_opposite_form, false);
@@ -92,18 +98,12 @@ function fieldVerification(field) {
   let field_value = field.value;
   let field_id = field.getAttribute("id");
   let valid = false;
-  if (
-    (field_id !== null && field_id === "email") ||
-    (field_id !== null && field_id === "rg-email")
-  ) {
+  if (field_id !== null && field_id === "rg-email") {
     let emailVerif =
       /\w+[\w!#$%&*+-|]*@(\w){2,}(\.{1}\w{2,}){0,2}(\.){1}[A-Za-z]{2,}/i;
     valid = emailVerif.test(field_value);
   }
-  if (
-    (field_id !== null && field_id === "rg-password") ||
-    (field_id !== null && field_id === "password")
-  ) {
+  if (field_id !== null && field_id === "rg-password") {
     let passwVerif = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}/;
     valid = passwVerif.test(field_value);
   }

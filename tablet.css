@@ -1,0 +1,53 @@
+@media screen and (min-width: 576px) and (max-width: 850px) {
+  body {
+    background-color: rgb(251, 251, 251);
+  }
+  .logo {
+    background-image: url("assets/Delorean_Logo-transparent.png");
+  }
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container {
+    background-color: #fff;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 5px rgba(180, 180, 180, 0.2),
+      -1px -1px 5px rgba(180, 180, 180, 0.2);
+    min-height: calc(100vh - 15rem);
+  }
+  .position-relative {
+    width: 100%;
+    position: relative;
+  }
+  .form-login,
+  .form-register {
+    text-align: center;
+  }
+  .form-login form,
+  .form-register form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  #register_form,
+  #login_form {
+    width: 100%;
+    position: absolute;
+    transition: right 0.5s ease;
+  }
+  #register_form {
+    right: 150%;
+    left: 0;
+    display: none;
+  }
+
+  #login_form {
+    right: 0;
+    left: 0;
+  }
+}
